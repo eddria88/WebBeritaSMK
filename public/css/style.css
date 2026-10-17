@@ -1,0 +1,1218 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --navy: #0A1F5C;
+    --navy-dark: #0A1F5C;
+    --navy-border: #163690;
+    --yellow: #FFD84D;
+    --yellow-primary: #FFD84D;
+    --yellow-hover: #F6CE38;
+    --pink: #FF7AA8;
+    --pink-soft: #FFEBF2;
+    --blue: #1E4FD8;
+    --blue-soft: #EDF3FF;
+    --green: #22C58B;
+    --green-soft: #EDFAF2;
+    --bg-page: #FFFFFF;
+    --text-navy: #0A1F5C;
+    --text-body: #1E293B;
+    --text-muted: #64748B;
+    --font-heading: 'Baloo 2', 'Arial Rounded MT Bold', 'Nunito', sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-body);
+    background-color: var(--bg-page);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   1. SIDEBAR & ADMIN LAYOUT (SESUAI GAMBAR 1, 2, 3)
+   ========================================================= */
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background-color: #FFFFFF;
+}
+
+.admin-sidebar {
+    width: 240px;
+    background-color: var(--navy);
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.75rem 1.5rem;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    flex-shrink: 0;
+}
+
+.admin-sidebar-school {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    margin-bottom: 2.5rem;
+    padding-left: 0.5rem;
+    line-height: 1.3;
+}
+
+.admin-sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.admin-menu-link {
+    display: block;
+    padding: 0.8rem 1.4rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 16px;
+    transition: all 0.15s ease;
+}
+
+.admin-menu-link.active {
+    background-color: var(--yellow);
+    color: var(--navy);
+    font-weight: 800;
+}
+
+.admin-menu-link:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.admin-sidebar-logout {
+    background: transparent;
+    border: none;
+    color: #FFFFFF;
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem;
+    text-align: left;
+    width: 100%;
+    transition: color 0.15s ease;
+}
+
+.admin-sidebar-logout:hover {
+    color: var(--yellow);
+}
+
+.admin-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 2.5rem 3.5rem;
+    background-color: #FFFFFF;
+}
+
+.admin-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+}
+
+.admin-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.admin-page-title {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+}
+
+.admin-user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.admin-user-text {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.admin-user-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--navy);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+/* Tombol Tambah Informasi Kanan Atas (Gambar 2) */
+.btn-tambah-informasi {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--yellow);
+    color: var(--navy);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2px solid var(--navy);
+    border-radius: 12px;
+    padding: 0.65rem 1.4rem;
+    box-shadow: 2px 2px 0 var(--navy);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-tambah-informasi:hover {
+    background-color: var(--yellow-hover);
+}
+
+/* =========================================================
+   2. STAT CARDS (GAMBAR 1)
+   ========================================================= */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    margin-bottom: 2.5rem;
+}
+
+.stat-card {
+    border-radius: 20px;
+    padding: 1.4rem 1.6rem;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stat-card-pink {
+    background-color: var(--pink-soft);
+    border: 2px solid var(--pink);
+    box-shadow: 8px 8px 0 var(--pink);
+}
+
+.stat-card-blue {
+    background-color: var(--blue-soft);
+    border: 2px solid var(--blue);
+    box-shadow: 8px 8px 0 var(--blue);
+}
+
+.stat-card-green {
+    background-color: var(--green-soft);
+    border: 2px solid var(--green);
+    box-shadow: 8px 8px 0 var(--green);
+}
+
+.stat-card-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.stat-card-value {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+}
+
+/* =========================================================
+   3. BIG WHITE BOXES DENGAN OFFSET SHADOW NAVY (GAMBAR 1, 2, 3)
+   ========================================================= */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.dashboard-box {
+    background-color: #FFFFFF;
+    border: 2.5px solid var(--navy);
+    border-radius: 22px;
+    box-shadow: 8px 8px 0 var(--navy);
+    padding: 2rem;
+    min-height: 420px;
+}
+
+.dashboard-box-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+}
+
+.category-bar-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.category-bar-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+}
+
+.category-bar-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.progress-track {
+    width: 100%;
+    height: 14px;
+    background-color: #F1F5F9;
+    border-radius: 999px;
+    overflow: hidden;
+    border: 1px solid #CBD5E1;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.recent-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.recent-item {
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    background-color: #F8FAFD;
+    border: 1px solid #E2E8F0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.recent-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.recent-item-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--navy);
+}
+
+.recent-item-date {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* =========================================================
+   4. KELOLA INFORMASI (GAMBAR 2)
+   ========================================================= */
+.mockup-big-box {
+    background-color: #FFFFFF;
+    border: 2.5px solid var(--navy);
+    border-radius: 22px;
+    box-shadow: 8px 8px 0 var(--navy);
+    padding: 2rem;
+    overflow-x: auto;
+}
+
+.mockup-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.mockup-table th {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    padding: 0.8rem 1.25rem;
+    border-bottom: 2px solid var(--navy);
+}
+
+.mockup-table td {
+    padding: 1.15rem 1.25rem;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #E2E8F0;
+    vertical-align: middle;
+}
+
+.mockup-table tr:last-child td {
+    border-bottom: none;
+}
+
+.table-judul {
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.table-date {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.btn-action-edit {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--navy);
+    background-color: #FFFFFF;
+    border: 1.5px solid var(--navy);
+    border-radius: 8px;
+    transition: all 0.15s ease;
+}
+
+.btn-action-edit:hover {
+    background-color: #F1F5F9;
+}
+
+.btn-action-delete {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #FF5A5F;
+    border: 1.5px solid var(--navy);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-action-delete:hover {
+    background-color: #E0484D;
+}
+
+/* =========================================================
+   5. TAMBAH / UBAH INFORMASI (GAMBAR 3)
+   ========================================================= */
+.mockup-form-box {
+    background-color: #FFFFFF;
+    border: 2.5px solid var(--navy);
+    border-radius: 22px;
+    box-shadow: 8px 8px 0 var(--navy);
+    padding: 2.5rem;
+}
+
+.mockup-form-group {
+    margin-bottom: 1.75rem;
+}
+
+.mockup-label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.65rem;
+}
+
+.mockup-input, .mockup-textarea {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--navy);
+    background-color: #FFFFFF;
+    border: 1.8px solid var(--navy);
+    border-radius: 12px;
+    outline: none;
+}
+
+.mockup-input:focus, .mockup-textarea:focus {
+    border-color: var(--blue);
+}
+
+.mockup-textarea {
+    resize: vertical;
+    min-height: 200px;
+}
+
+.mockup-form-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.btn-simpan-informasi {
+    background-color: var(--yellow);
+    color: var(--navy);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.8rem;
+    border: 2px solid var(--navy);
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--navy);
+    transition: all 0.15s ease;
+}
+
+.btn-simpan-informasi:hover {
+    background-color: var(--yellow-hover);
+}
+
+.btn-batal-informasi {
+    background-color: #FFFFFF;
+    color: var(--navy);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 0.75rem 1.8rem;
+    border: 2px solid var(--blue);
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-batal-informasi:hover {
+    background-color: #F8FAFC;
+}
+
+/* =========================================================
+   6. HALAMAN INFORMASI SISWA (GAMBAR 4)
+   ========================================================= */
+.mockup-navbar {
+    background-color: var(--navy);
+    color: #FFFFFF;
+    width: 100%;
+    padding: 1.4rem 3.5rem;
+}
+
+.mockup-navbar-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mockup-navbar-brand {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.mockup-navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.mockup-navbar-user {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.mockup-navbar-logout {
+    background-color: var(--navy-dark);
+    color: #FFFFFF;
+    border: 1.5px solid var(--navy-border);
+    padding: 0.45rem 1.4rem;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.mockup-navbar-logout:hover {
+    background-color: #0c2368;
+}
+
+.mockup-user-main {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 3.5rem 1.5rem 4rem 1.5rem;
+}
+
+.mockup-page-header {
+    text-align: center;
+    margin-bottom: 2.75rem;
+}
+
+.mockup-main-title {
+    font-family: var(--font-heading);
+    font-size: 3.4rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 0.4rem;
+}
+
+.mockup-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-navy);
+    font-weight: 500;
+}
+
+/* Filter Row Rata Kiri Sesuai Gambar 4 */
+.mockup-filter-row {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 2.25rem;
+    flex-wrap: wrap;
+}
+
+.mockup-filter-pill {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.mockup-filter-pill:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.mockup-filter-pill.active {
+    outline: 3px solid var(--navy);
+    outline-offset: 2px;
+}
+
+.pill-semua {
+    background-color: var(--navy);
+}
+
+.pill-pengumuman {
+    background-color: var(--blue);
+}
+
+.pill-akademik {
+    background-color: var(--green);
+}
+
+.pill-kegiatan {
+    background-color: var(--pink);
+}
+
+/* Cards Grid 3 Kolom Sesuai Gambar 4 */
+.mockup-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.mockup-card {
+    border-radius: 20px;
+    padding: 1.6rem 1.75rem;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease;
+}
+
+.mockup-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Varian Tema Kartu & Bayangan Blok Solid Sesuai Gambar 4 */
+.card-theme-pengumuman {
+    background-color: var(--blue-soft);
+    border: 2px solid var(--blue);
+    box-shadow: 8px 8px 0 var(--blue);
+}
+
+.card-theme-akademik {
+    background-color: var(--green-soft);
+    border: 2px solid var(--green);
+    box-shadow: 8px 8px 0 var(--green);
+}
+
+.card-theme-kegiatan {
+    background-color: var(--pink-soft);
+    border: 2px solid var(--pink);
+    box-shadow: 8px 8px 0 var(--pink);
+}
+
+/* Bentuk Oval Kapsul Melingkari Teks Kategori */
+.badge, .mockup-card-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem 1.25rem;
+    border-radius: 9999px; /* Bentuk oval sempurna melingkari kategori */
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-align: center;
+    white-space: nowrap;
+    letter-spacing: 0.25px;
+    line-height: 1.2;
+    box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.12);
+}
+
+.mockup-card-badge {
+    margin-bottom: 0.9rem;
+}
+
+.badge-pengumuman {
+    background-color: var(--blue);
+    color: #FFFFFF;
+}
+
+.badge-akademik {
+    background-color: var(--green);
+    color: #FFFFFF;
+}
+
+.badge-kegiatan {
+    background-color: var(--pink);
+    color: #FFFFFF;
+}
+
+.mockup-card-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #000000;
+    line-height: 1.3;
+    margin-bottom: 0.65rem;
+}
+
+.mockup-card-text {
+    font-size: 0.95rem;
+    color: #1E293B;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.mockup-card-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--blue);
+    text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    text-align: left;
+}
+
+.mockup-card-link:hover {
+    color: var(--navy);
+}
+
+/* =========================================================
+   7. LOGIN PAGE (SPLIT-SCREEN SESUAI LOGIN.BLADE.PHP PENGGUNA)
+   ========================================================= */
+.login-container {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.login-left {
+    flex: 1.1;
+    background-color: var(--navy-dark);
+    position: relative;
+    overflow: hidden;
+    padding: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #FFFFFF;
+}
+
+.login-brand {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    z-index: 2;
+    letter-spacing: -0.3px;
+}
+
+.login-hero-text {
+    z-index: 2;
+    max-width: 500px;
+}
+
+.login-hero-text h1 {
+    font-family: var(--font-heading);
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+}
+
+.login-hero-text p {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+}
+
+/* Lingkaran Dekorasi Geometris */
+.circle-deco-green-top {
+    position: absolute;
+    top: -50px;
+    left: 20%;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: var(--green);
+    opacity: 0.85;
+    z-index: 1;
+}
+
+.circle-deco-yellow-mid {
+    position: absolute;
+    top: 30%;
+    right: 8%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--yellow);
+    opacity: 0.85;
+    z-index: 1;
+}
+
+.circle-deco-pink-bottom-left {
+    position: absolute;
+    bottom: 8%;
+    left: 6%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: var(--pink);
+    opacity: 0.85;
+    z-index: 1;
+}
+
+.circle-deco-pink-mid-right {
+    position: absolute;
+    top: 15%;
+    right: 30%;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: var(--pink);
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.circle-deco-green-bottom {
+    position: absolute;
+    bottom: -40px;
+    right: 25%;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: var(--green);
+    opacity: 0.85;
+    z-index: 1;
+}
+
+.smiley-deco-bottom {
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    z-index: 3;
+}
+
+/* Bagian Kanan Formulir Login */
+.login-right {
+    flex: 1;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3.5rem 3rem;
+}
+
+.login-form-box {
+    width: 100%;
+    max-width: 440px;
+}
+
+.login-form-title {
+    font-family: var(--font-heading);
+    font-size: 2.3rem;
+    font-weight: 800;
+    color: var(--navy-dark);
+    line-height: 1.15;
+    margin-bottom: 0.4rem;
+}
+
+.login-form-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.4rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin-bottom: 0.45rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 18px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--navy-dark);
+    background-color: #FFFFFF;
+    border: 2px solid var(--navy-dark);
+    border-radius: 12px;
+    outline: none;
+    transition: all 0.15s ease;
+}
+
+.form-input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(30, 79, 216, 0.15);
+}
+
+.form-input-error {
+    border-color: #EF4444;
+}
+
+@media (max-width: 900px) {
+    .login-container {
+        flex-direction: column;
+    }
+    .login-left {
+        padding: 2.5rem 1.5rem;
+        min-height: 340px;
+    }
+    .login-hero-text h1 {
+        font-size: 2.2rem;
+    }
+    .login-right {
+        padding: 2.5rem 1.5rem;
+    }
+}
+
+/* =========================================================
+   DETAIL INFORMASI (PERSIS GAMBAR 3: DUA KOLOM & INFO LAINNYA)
+   ========================================================= */
+.detail-page-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem 1.5rem;
+}
+
+.detail-back-container {
+    margin-bottom: 1.75rem;
+}
+
+.detail-back-link {
+    color: var(--blue);
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: color 0.15s ease;
+}
+
+.detail-back-link:hover {
+    color: var(--navy);
+}
+
+.detail-two-cols {
+    display: grid;
+    grid-template-columns: 1.65fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+/* Kolom Kiri: Kartu Utama */
+.detail-main-card {
+    border-radius: 22px;
+    padding: 2.75rem 2.5rem;
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.detail-meta-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.detail-meta-date {
+    font-size: 1.05rem;
+    color: var(--text-body);
+    font-weight: 500;
+}
+
+.detail-main-title {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+}
+
+.detail-main-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text-body);
+    white-space: pre-line;
+}
+
+.btn-kembali-daftar {
+    display: inline-block;
+    background-color: var(--yellow);
+    color: var(--navy);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.75rem 1.8rem;
+    border: 2px solid var(--navy);
+    border-radius: 12px;
+    box-shadow: 2px 2px 0 var(--navy);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-kembali-daftar:hover {
+    background-color: var(--yellow-hover);
+}
+
+.btn-kembali-daftar:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--navy);
+}
+
+/* Kolom Kanan: Info Lainnya */
+.detail-sidebar-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.info-lainnya-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.75rem;
+}
+
+.info-lainnya-title {
+    font-family: var(--font-heading);
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1;
+}
+
+.info-lainnya-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .detail-two-cols {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   8. ALERTS & MODAL
+   ========================================================= */
+.alert {
+    padding: 0.85rem 1.25rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border: 1.5px solid var(--navy);
+}
+
+.alert-success {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.alert-danger {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+.form-error {
+    color: #DC2626;
+    font-size: 0.85rem;
+    margin-top: 0.35rem;
+    font-weight: 600;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(10, 31, 92, 0.45);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    background-color: #FFFFFF;
+    border: 2.5px solid var(--navy);
+    border-radius: 24px;
+    box-shadow: 8px 8px 0 var(--navy);
+    max-width: 600px;
+    width: 100%;
+    padding: 2.2rem;
+    transform: translateY(20px);
+    transition: transform 0.2s ease;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-overlay.active .modal-box {
+    transform: translateY(0);
+}
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.modal-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.25;
+}
+
+.modal-close-btn {
+    background: none;
+    border: none;
+    font-size: 1.75rem;
+    cursor: pointer;
+    color: var(--navy);
+    line-height: 1;
+    padding: 0.25rem;
+}
+
+.modal-body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #334155;
+    margin-bottom: 1.75rem;
+    white-space: pre-line;
+}
+
+/* =========================================================
+   9. RESPONSIVE DESIGN
+   ========================================================= */
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .mockup-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .admin-wrapper {
+        flex-direction: column;
+    }
+    .admin-sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 1.5rem;
+    }
+    .admin-main {
+        padding: 1.5rem;
+    }
+    .admin-topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    .mockup-navbar {
+        padding: 1rem 1.5rem;
+    }
+    .mockup-navbar-inner {
+        flex-direction: column;
+        gap: 0.75rem;
+        text-align: center;
+    }
+    .mockup-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    .mockup-main-title {
+        font-size: 2.4rem;
+    }
+}
